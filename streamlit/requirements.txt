@@ -1,0 +1,12 @@
+numpy
+pandas
+streamlit
+matplotlib
+plotly
+sqlalchemy
+tqdm
+configparser
+warnings
+missingno
+pprint
+seaborn
