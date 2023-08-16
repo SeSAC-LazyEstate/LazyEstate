@@ -6,7 +6,6 @@ plotly
 sqlalchemy
 tqdm
 configparser
-warnings
 missingno
 pprint
 seaborn
