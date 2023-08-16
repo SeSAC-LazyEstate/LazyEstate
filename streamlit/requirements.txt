@@ -7,5 +7,4 @@ sqlalchemy
 tqdm
 configparser
 missingno
-pprint
 seaborn
