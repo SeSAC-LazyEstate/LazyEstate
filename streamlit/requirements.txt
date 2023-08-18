@@ -9,3 +9,5 @@ configparser
 missingno
 seaborn
 ftfy
+path
+pymysql

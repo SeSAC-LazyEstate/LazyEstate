@@ -6,25 +6,16 @@ import plotly.express as px
 import plotly.graph_objects as go
 import json
 import streamlit as st
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.15.0
-#   kernelspec:
-#     display_name: Python 3 (ipykernel)
-#     language: python
-#     name: python3
-# ---
+import sys
+import path
+
 
 st.markdown("# 데이터 시각화")
 
 pd.set_option('mode.chained_assignment',  None)  # SettingWithCopyWarning 무시
 
-
+dir = path.Path(__file__).abspath()
+sys.path.append(dir.parent.parent)
 merged_df = pd.read_csv('../data/processed/merged_houseinfo_realprice.csv')
 df_realprice = pd.read_csv('../data/processed/realprice.csv')
 df_realprice
