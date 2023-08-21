@@ -11,3 +11,4 @@ seaborn
 ftfy
 path
 pymysql
+pydeck
