@@ -9,14 +9,18 @@ import pymysql
 import pydeck as pdk
 
 # page config
-st.set_page_config(layout='wide', initial_sidebar_state='auto', menu_items={"About":"test"})
+st.set_page_config(layout='wide', initial_sidebar_state='auto')
+
+# secrets
+db_url = st.secrets["db_credentials"]["db_url"]
+db_username = st.secrets["db_credentials"]["db_username"]
+db_password = st.secrets["db_credentials"]["db_password"]
 
 # sidebar
-
 st.sidebar.header('데이터 시각화')
 
 # SQLAlchemy를 사용하여 데이터베이스 연결
-engine = create_engine("mysql+pymysql://"+ st.secrets['DB_USERNAME'] +":"+ st.secrets['DB_PASSWORD'] + "@" + st.secrets['DB_URL'])
+engine = create_engine("mysql+pymysql://"+ db_username +":"+ db_password + "@" + db_url)
 
 # houseinfo_raw 데이터를 DataFrame으로 받기
 df_realprice = pd.read_sql_table('realprice', engine.connect(), index_col='no')

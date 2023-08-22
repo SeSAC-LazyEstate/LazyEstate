@@ -206,9 +206,9 @@ fig = px.pie(all_data_grouped,
 fig.update_traces(textinfo='label+percent', textfont_size=16)
 st.plotly_chart(fig, use_container_width=True)
 
-# +
 color_scale = px.colors.sequential.Oryel
 # 'date_difference'를 기반으로 데이터 필터링
+merged_df['date_difference'] = pd.to_timedelta(merged_df['date_difference'])
 filtered_data = merged_df[merged_df['date_difference'].dt.days.abs() <= 365]
 
 # 'region2'와 'floor'로 그룹화하여 sale_price와 contract_price의 평균 계산
@@ -225,10 +225,8 @@ fig2_region_colored = px.bar(grouped_data_by_region, x='region2', y='price_diffe
 
 st.plotly_chart(fig2_region_colored, use_container_width=True)
 
-# +
 
 geo_json_gu = json.load(open("../data/map/서울시_자치구.geojson"))
-
 # +
 
 # 지도 그래프 생성
@@ -255,7 +253,6 @@ fig.update_layout(mapbox={
     })
 st.plotly_chart(fig, use_container_width=True)
 
-# -
 
 df_price_by_gu = df_realprice.groupby('district')[['contract_price']].mean()
 df_price_by_gu = df_price_by_gu.reset_index()
@@ -297,5 +294,3 @@ fig.update_layout(coloraxis_colorbar=dict(
 
 st.plotly_chart(fig, use_container_width=True)
 
-st.write('끗')
-# -
