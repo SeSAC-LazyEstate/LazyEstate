@@ -12,3 +12,4 @@ ftfy
 path
 pymysql
 pydeck
+wordcloud
