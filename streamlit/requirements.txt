@@ -13,3 +13,7 @@ path
 pymysql
 pydeck
 wordcloud
+konlpy
+nltk
+wordcloud
+pillow
